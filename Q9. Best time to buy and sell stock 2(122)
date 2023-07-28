@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int bs=INT_MIN,as=0;
+        for(int x:prices){
+            if(as<bs+x){
+                as=bs+x;
+            }
+            if(bs<as-x){
+                bs=as-x;
+            }
+            
+        }
+        return as;
+    }
+};
