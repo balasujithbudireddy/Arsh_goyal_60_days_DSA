@@ -1,0 +1,18 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int n=nums.size();
+        int j=0;
+        for(int i=0;i<n;i++){
+            //find the non zeros in the array and replace them with the number
+            if(nums[i]!=0){
+                nums[j]=nums[i];
+                j++;
+            }
+        }
+        //now all terms will be non zero and we will make the last terms as zero
+        for(;j<n;j++){
+            nums[j]=0;
+        }
+    }
+};
