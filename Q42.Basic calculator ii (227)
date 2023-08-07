@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int calculate(string s) {
+        int ans=0;
+        int pn=0;
+        int cn=0;
+        char op='+';
+        int n=s.size();
+        for (int i=0;i<n;i++){
+            const char c=s[i];
+            if(isdigit(c)) cn=cn*10+(c-'0');
+            if(!isdigit(c) && !isspace(c) || i==n-1){
+                if(op=='+' || op=='-'){
+                    ans+=pn;
+                    pn=op=='+' ? cn:-cn;
+                }else if(op=='*') pn*=cn;
+                else if(op=='/') pn/=cn;
+                op=c;
+                cn=0;
+            }
+        }
+        return ans+pn;
+    }
+};
