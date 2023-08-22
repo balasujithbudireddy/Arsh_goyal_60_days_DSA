@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int reverse(int x) {
+        if(x>=2147483647 || x<=-2147483648){
+            return 0;
+        }
+        long long int rev=0;
+        int n=x;
+       if(n>0){
+           while(n!=0){
+               rev*=10;
+               if(rev>=2147483647 || rev<=-2147483648){ return 0;}
+               rev+=(n%10);
+               n/=10;
+           }
+       }else{
+           n*=-1;
+           while(n!=0){
+               rev*=10;
+               if(rev>=2147483647 || rev<=-2147483648){ return 0;}
+               rev+=(n%10);
+               n/=10;
+           }rev*=-1;
+       }
+        return int(rev);
+        
+    }
+};
