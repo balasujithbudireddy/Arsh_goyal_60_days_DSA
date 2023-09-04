@@ -1,0 +1,32 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int main(){
+    vector<int>a;
+    int n;
+    cin>>n;
+    vector<int>b;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    for(int i=0;i<n;i++){
+        cin>>b[i];
+    }
+    int k;
+    cin>>k;
+    sort(a.begin(),a.end());
+    sort(b.begin(),b.end());
+    reverse(b.begin(),b.end());
+    int i=0,j=0,count=0;
+    while(i<n && j<n){
+        if(a[i]+b[i]>=k) count++;
+        i++;
+        j++;
+    }
+
+    if(count) cout<<"NO"<<endl;
+    else cout<<"Yes"<<endl;
+
+    return 0;
+}
